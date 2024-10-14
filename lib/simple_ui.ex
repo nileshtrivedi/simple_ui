@@ -1,17 +1,5 @@
 defmodule SimpleUi do
-  @moduledoc """
-  Documentation for `SimpleUi`.
-
-  ## Example
-
-  ```
-  single_view "my card", :card do
-  end
-
-  multi_view "my kanban", :kanban do
-  end
-  ```
-  """
+  @moduledoc false
   defmodule SingleView do
     defstruct [:name, :kind, :resource, :params]
   end
@@ -29,20 +17,20 @@ defmodule SimpleUi do
         name: [
           type: :atom,
           required: true,
-          doc: "The singleview name"
+          doc: "The single_view name"
         ],
         kind: [
           type: :atom,
           required: true,
-          doc: "the singleview type: card/row/column"
+          doc: "the single_view type: card/row/column"
         ],
         resource: [
-          type: :string,
+          type: :atom,
           required: true,
-          doc: "the underlying resource for the single_view"
+          doc: "the underlying resource module for the single_view"
         ],
         params: [
-          type: :array,
+          type: {:list, :string},
           required: true,
           doc: "the params for the single_view"
         ]
@@ -65,9 +53,9 @@ defmodule SimpleUi do
           doc: "the multiview type: grid/gallery/kanban/calendar/map/timeline/hierarchy"
         ],
         resource: [
-          type: :string,
+          type: :atom,
           required: true,
-          doc: "the underlying resource for the multi_view"
+          doc: "the underlying resource module for the multi_view"
         ],
         single_view: [
           type: :atom,
