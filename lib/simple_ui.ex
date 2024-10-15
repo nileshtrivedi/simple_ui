@@ -20,7 +20,7 @@ defmodule SimpleUi do
           doc: "The single_view name"
         ],
         kind: [
-          type: :atom,
+          type: {:in, [:card, :row, :column]},
           required: true,
           doc: "the single_view type: card/row/column"
         ],
@@ -48,7 +48,7 @@ defmodule SimpleUi do
           doc: "The multiview name"
         ],
         kind: [
-          type: :atom,
+          type: {:in, [:grid, :form, :gallery, :kanban, :calendar, :map, :timeline, :hierarchy]},
           required: true,
           doc: "the multiview type: grid/gallery/kanban/calendar/map/timeline/hierarchy"
         ],

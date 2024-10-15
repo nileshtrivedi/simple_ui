@@ -24,4 +24,20 @@ defmodule SimpleUiTest do
       }
     ]
   end
+
+  test "reject invalid kinds" do
+    assert_raise Spark.Error.DslError, fn ->
+      defmodule InvalidKindSingle do
+        use SimpleUi
+        single_view :my_view, :invalid, SimpleUi, []
+      end
+    end
+
+    assert_raise Spark.Error.DslError, fn ->
+      defmodule InvalidKindMulti do
+        use SimpleUi
+        multi_view :my_view, :invalid, SimpleUi, :my_single_view
+      end
+    end
+  end
 end
