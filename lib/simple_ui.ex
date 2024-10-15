@@ -25,7 +25,7 @@ defmodule SimpleUi do
           doc: "the single_view type: card/row/column"
         ],
         resource: [
-          type: :atom,
+          type: {:spark, Ash.Resource},
           required: true,
           doc: "the underlying resource module for the single_view"
         ],
@@ -50,10 +50,10 @@ defmodule SimpleUi do
         kind: [
           type: {:in, [:grid, :form, :gallery, :kanban, :calendar, :map, :timeline, :hierarchy]},
           required: true,
-          doc: "the multiview type: grid/gallery/kanban/calendar/map/timeline/hierarchy"
+          doc: "the multiview type: grid/form/gallery/kanban/calendar/map/timeline/hierarchy"
         ],
         resource: [
-          type: :atom,
+          type: {:spark, Ash.Resource},
           required: true,
           doc: "the underlying resource module for the multi_view"
         ],
